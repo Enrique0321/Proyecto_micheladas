@@ -1,129 +1,130 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&family=Righteous&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-  scroll-padding-top: 3rem;
-  font-family: var(--font-family-1);
+  margin: 0; /* Elimina el margen predeterminado de todos los elementos */
+  padding: 0; /* Elimina el padding predeterminado de todos los elementos */
+  scroll-behavior: smooth; /* Agrega un desplazamiento suave al hacer scroll */
+  box-sizing: border-box; /* Asegura que el tamaño de los elementos incluya el padding y border */
+  scroll-padding-top: 3rem; /* Espaciado superior al hacer scroll */
+  font-family: var(--font-family-1); /* Define la fuente principal */
 }
 /* Variables */
+/* Variables de colores y fuentes */
 :root {
-  --brown: #4b1204;
-  --yellow-color: #ffa10a;
-  --text-color: #121212;
-  --container-color: #efe8e0;
-  --red: #a72e1b;
-  --blanco: #FFFFFF;
-  --negro: #000000;
-  --bg-color: #fff;
-  --text-alter-color: #94908e;
-  --font-family-1: "Mitr", sans-serif;
-  --font-family-2: "Righteous", sans-serif;
+  --brown: #4b1204; /* Marrón oscuro */
+  --yellow-color: #ffa10a; /* Amarillo */
+  --text-color: #121212; /* Negro suave */
+  --container-color: #efe8e0; /* Beige claro */
+  --red: #a72e1b; /* Rojo */
+  --blanco: #FFFFFF; /* Blanco */
+  --negro: #000000; /* Negro */
+  --bg-color: #fff; /* Fondo blanco */
+  --text-alter-color: #94908e; /* Gris */
+  --font-family-1: "Mitr", sans-serif; /* Fuente primaria */
+  --font-family-2: "Righteous", sans-serif; /* Fuente secundaria */
 }
 body {
-  color: var(--text-color);
-  background: var(--bg-color);
+  color: var(--text-color); /* Define el color del texto */
+  background: var(--bg-color); /* Define el color de fondo */
 }
 /* Custom Scroll Bar */
 html::-webkit-scrollbar {
-  width: 0.5rem;
-  background: transparent;
+  width: 0.5rem; /* Define el ancho de la barra de desplazamiento */
+  background: transparent; /* Fondo transparente */
 }
 html::-webkit-scrollbar-thumb {
-  background: var(--red);
+  background: var(--red); /* Color del thumb de la barra de desplazamiento */
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; /* Elimina la decoración de los enlaces */
 }
 img {
-  width: 100%;
+  width: 100%; /* Asegura que las imágenes sean responsivas */
 }
 section {
-  padding: 3rem 0 2rem;
+  padding: 3rem 0 2rem; /* Define el espaciado interno de las secciones */
 }
 .container {
-  max-width: 1400px;
-  margin: auto;
-  width: 100%;
+  max-width: 1400px; /* Define el ancho máximo */
+  margin: auto; /* Centra el contenido */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
 header {
-  position: fixed;
+  position: fixed; /* Fija la posición en la parte superior */
   top: 0;
   left: 0;
-  width: 100%;
-  background: var(--blanco);
-  border-bottom: 1px solid rgb(255 255 255 / 10%);
-  z-index: 100;
+  width: 100%; /* Ocupa todo el ancho */
+  background: var(--blanco); /* Fondo blanco */
+  border-bottom: 1px solid rgb(255 255 255 / 10%); /* Borde inferior semi-transparente */
+  z-index: 100; /* Prioridad sobre otros elementos */
 }
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Alinea elementos verticalmente */
+  justify-content: space-between; /* Distribuye elementos */
+  padding: 24px 0; /* Espaciado interno */
 }
 .logo img {
-  width: 75px;
+  width: 75px;/*tamaño  logo*/
 }
 .navbar {
-  display: flex;
-  align-items: center;
-  column-gap: 1.5rem;
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Alinea verticalmente */
+  column-gap: 1.5rem; /* Espaciado entre elementos */
 }
 .nav-link {
-  font-size: 0.88rem;
-  color: var(--negro);
-  transition: 0.4s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 0.88rem; /* Tamaño del texto */
+  color: var(--negro); /* Color del texto */
+  transition: 0.4s all cubic-bezier(0.075, 0.82, 0.165, 1); /* Transición suave */
 }
 .nav-link:hover {
-  color: var(--text-alter-color);
+  color: var(--text-alter-color); /* Cambio de color al pasar el mouse */
   transition: 0.4s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .nav-icons {
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Alinea elementos */
+  column-gap: 1rem; /* Espaciado entre iconos */
 }
 .nav-icons .bx {
-  color: var(--negro);
-  font-size: 20px;
+  color: var(--negro); /* Color de los iconos */
+  font-size: 20px; /* Tamaño del icono */
 }
 .cart {
-  position: relative;
+  position: relative; /* Posiciona elementos hijos de manera relativa */
 }
 .cart span {
-  position: absolute;
+  position: absolute; /* Posición absoluta dentro del carrito */
   right: -10px;
   top: -10px;
-  background: var(--text-color);
-  font-size: 10px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
+  background: var(--text-color); /* Fondo oscuro */
+  font-size: 10px; /* Tamaño del texto */
+  width: 20px; /* Ancho del indicador */
+  height: 20px; /* Altura del indicador */
+  border-radius: 50%; /* Lo hace circular */
+  color: var(--bg-color); /* Texto en blanco */
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centra el contenido */
+  align-items: center; /* Centra el contenido */
+  font-family: sans-serif; /* Fuente sans-serif */
 }
 .menu-icon {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 5px;
-  cursor: pointer;
-  z-index: 200;
-  transition: 0.3s;
+  display: none; /* Oculto por defecto */
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: center; /* Alinea los elementos */
+  justify-content: center; /* Centra verticalmente */
+  row-gap: 5px; /* Espaciado entre líneas */
+  cursor: pointer; /* Cambia el cursor */
+  z-index: 200; /* Eleva sobre otros elementos */
+  transition: 0.3s; /* Suaviza la animación */
 }
 .menu-icon div {
-  display: block;
-  background: var(--bg-color);
-  height: 2px;
-  width: 23px;
-  transition: 0.3s;
+  display: block; /* Hace visible el div */
+  background: var(--bg-color); /* Color de las líneas */
+  height: 2px; /* Grosor de las líneas */
+  width: 23px; /* Ancho de las líneas */
+  transition: 0.3s; /* Animación de transición */
 }
 .move .line1 {
   transform: rotate(-45deg) translate(-5px, 5px);
@@ -135,47 +136,47 @@ header {
   transform: rotate(45deg) translate(-5px, -5px);
 }
 .home {
-  min-height: 650px;
-  background: var(--red);
-  position: relative;
-  padding: 7rem 0 2rem;
+  min-height: 650px; /* Altura mínima */
+  background: var(--red); /* Fondo rojo */
+  position: relative; /* Posición relativa */
+  padding: 7rem 0 2rem; /* Espaciado interno */
 }
 .home-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  gap: 1.5rem;
-  color: var(--bg-color);
+  display: grid; /* Usa grid */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  align-items: center; /* Alinea verticalmente */
+  gap: 1.5rem; /* Espaciado entre columnas */
+  color: var(--bg-color); /* Color del texto */
 }
 .home-text {
   z-index: 4;
 }
 .home-text h1 {
-  font-family: var(--font-family-2);
-  font-size: 6.2rem;
-  line-height: 6.8rem;
-  font-weight: 800;
+  font-family: var(--font-family-2); /* Usa la segunda fuente */
+  font-size: 6.2rem; /* Tamaño del título */
+  line-height: 6.8rem; /* Espaciado entre líneas */
+  font-weight: 800; /* Grosor de la fuente */
 }
 .home-text p {
-  font-size: 1.025rem;
-  margin: 2rem 0 1rem;
+  font-size: 1.025rem; /* Tamaño del texto */
+  margin: 2rem 0 1rem; /* Espaciado alrededor */
 }
 .home-text h3 {
-  font-size: 2.7rem;
-  line-height: 2.7rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
+  font-size: 2.7rem; /* Tamaño del subtítulo */
+  line-height: 2.7rem; /* Espaciado entre líneas */
+  font-weight: 500; /* Grosor de la fuente */
+  margin-bottom: 2rem; /* Margen inferior */
 }
 .btn {
-  max-width: 160px;
-  padding: 15px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: var(--yellow-color);
-  color: var(--bg-color);
-  cursor: pointer;
+  max-width: 160px; /* Ancho máximo */
+  padding: 15px 10px; /* Espaciado interno */
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Alinea verticalmente */
+  justify-content: center; /* Centra el contenido */
+  border-radius: 10px; /* Esquinas redondeadas */
+  background: var(--yellow-color); /* Fondo amarillo */
+  color: var(--bg-color); /* Texto blanco */
+  cursor: pointer; /* Cambia el cursor */
 }
 .btn:hover {
   background: var(--text-color);
@@ -705,3 +706,4 @@ header {
     margin-top: 4px;
   }
 }
+
