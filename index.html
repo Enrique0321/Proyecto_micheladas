@@ -1,77 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPER MENTADAS MICHELADAS</title>
-    <link rel="stylesheet" href="style.css">
-    <!--box icons-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' 
-    rel='stylesheet'>
-
-</head>
-
-
-<body>
-    <!--Header-->   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super mentadas micheladas</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
     <header>
-    <!--Nav-->
-    <div class="nav container">
-    <!--Logo--> 
-    <a href="#" class="logo">
-     <img src="imagenes.css/logo_miches.jpg" alt="">   
-    </a>
-    <!--Navbar-->
-
-    <!--Aqui le asignamos los apartados en donde se mostraran los productos y secciones-->
-    <div class="navbar">
-    <a href="#" class="nav-link">Home</a>
-    <a href="#" class="nav-link">Productos</a>
-    <a href="#" class="nav-link">Precios</a>
-    <a href="#" class="nav-link">Testi</a>
-    <a href="#" class="nav-link">Blog</a>
-    </div>
-    <!--Nav Iconis-->
-    <div class="nav-icons">
-    <a href="#"><i class='bx bx-user'></i></a> 
-    <a href="#" class="cart">
-        <i class='bx bx-shopping-bag'></i> 
-        <span>0</span>
-
-    </a>
-    <!--Menu Icons-->
-    <div class="menu-icon">
-    <div class="line1"></div>
-    <div class="line2"></div> 
-    <div class="line3"></div>   
-    </div>
-
-    </div>
-    </div>
+      <!-- Nav -->
+      <div class="nav container">
+        <!-- Logo -->
+        <a href="#" class="logo"> <!--Declaramos la class logo-->
+          <img src="images/logoooo-removebg-preview.png" alt="" />
+        </a>
+        <!-- Navbar -->
+        <div class="navbar"> <!--Se asignan las -->
+          <a href="#" class="nav-link">Home</a>
+          <a href="#items" class="nav-link">Productos Top</a>
+          <a href="#menu-container" class="nav-link">Menu</a>
+          <a href="#testimonials" class="nav-link">Comentarios</a>
+          <a href="#" class="nav-link">Blog</a>
+        </div>
+        <!-- Nav Icons -->
+        <div class="nav-icons">
+          <a href="#"><i class="bx bx-user"></i></a>
+          <a href="#" class="cart">
+            <i class="bx bx-shopping-bag"></i>
+            <span>0</span>
+          </a>
+          <!-- Menu Icon -->
+          <div class="menu-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+      </div>
     </header>
-    <!--Home-->
+    <!-- Home -->
     <section class="home" id="home">
-    <div class="home-content container">
-    <div class="home-text">
-        <h1>
-            Super Mentadas Micheladas  <br />
-            
-        </h1>
-        <p>La mejor michelada de todo el sur</p>
-        <h3>Buy 1 Get one FREE!</h3>
-        <a href="" class="btn"> Orden Now</a>
-        
-    </div>
-    <!--Home Image-->
-    <img src="imagenes.css/imagenprincipal.png" alt="" class="home img">
-
-    </div>
-    <!--Home Mask image -->
-    <img src="imagenes.css/home-mask.png" alt="" class="home-mask">
-
+      <div class="home-content container">
+        <div class="home-text">
+          <h1>
+          Super Mentadas Micheladas</br>
+         </h1>
+          <p>Michelada 100% casera y artesanal</p>
+          <p>Pioneres desde 2013</p>
+          
+          <a href="#" class="btn">Ordenar ahora</a>
+        </div>
+        <!-- Home Image -->
+        <img src="images/imagenprincipal.png" alt="" class="home-img" />
+      </div>
+      <!-- Home Mask Image -->
+      <img src="images/home-mask.png" alt="" class="home-mask" />
     </section>
-    <!--Link to js-->
+    <!-- Features -->
+    <div class="features container">
+      <div class="feature-box">
+        <img src="images/feature-1.svg" alt="" class="feature-img" />
+        <div class="feature-text">
+          <h3>Calidad en producto</h3>
+          <p>Producto 100% hecho en casa </p>
+        </div>
+      </div>
+      <div class="feature-box">
+        <img src="images/feature-2.svg" alt="" class="feature-img" />
+        <div class="feature-text">
+          <h3>Fast Delivery</h3>
+          <p>Receive goods in 5 minutes</p>
+        </div>
+      </div>
+      <div class="feature-box">
+        <img src="images/feature-3.svg" alt="" class="feature-img" />
+        <div class="feature-text">
+          <h3>Amabilidad con el cliente</h3>
+          <p>Mas que clientes son nuevos amigos cada dia </p>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Feature Menu -->
+    <section class="feature-menu container" id="feature-menu">
+      <h2 class="heading">Producto de poca madre</h2>
+      <div class="feature-menu-content">
+        <div class="feature-menu-box">
+          <img src="images/imagenprincipal.png" alt="" />
+          <h3>Vasos preparados</h3>
+          <p>(10 sabores para elegir)</p>
+        </div>
+        <div class="feature-menu-box">
+          <img src="images/medios.jpg" alt="" />
+          <h3>Medios</h3>
+          <p>Incluye chamoy, chile en polvo y limon</p>
+        </div>
+        <div class="feature-menu-box">
+          <img src="images/medio y litros.jpg" alt="" />
+          <h3>Litros</h3>
+          <p>(Incluye chamoy, chile en polvo y limon)</p>
+        </div>
+        <div class="feature-menu-box">
+          <img src="images/daiquirii.jpg" alt="" />
+          <h3>Daiquirys</h3>
+          <p>(Con mango Natural)</p>
+        </div>
+        <div class="feature-menu-box">
+          <img src="images/piñas coladas.jpg" alt="" />
+          <h3>Piñas coladas</h3>
+          <p>(Sabor nartural)</p>
+        </div>
+      </div>
+    </section>
+    <!-- Items -->
+    <section class="items" id="items">
+      <h2 class="heading container">Los mentados productos</h2>
+      <div class="item-content container">
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/imagenprincipal.png" alt="" />
+          <h2>Michelada Clasica</h2>
+          <div class="price">
+            <h3>$30</h3>
+            <p>$35</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/imagenprincipal.png" alt="" />
+          <h2>Michelada Tamarindo</h2>
+          <div class="price">
+            <h3>$30</h3>
+            <p>$35</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/imagenprincipal.png" alt="" />
+          <h2>Michelada Mango</h2>
+          <div class="price">
+            <h3>$30</h3>
+            <p>$35
+            </p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/medios.jpg" alt="" />
+          <h2>Preparado de Medio</h2>
+          <div class="price">
+            <h3>$70</h3>
+            <p>$75</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/medio y litros.jpg" alt="" />
+          <h2>Preparado de Litro</h2>
+          <div class="price">
+            <h3>$135</h3>
+            <p>$140</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/daiquirii.jpg" alt="" />
+          <h2>Daiquirys de Mango</h2>
+          <div class="price">
+            <h3>$40</h3>
+            <p>$50</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        <div class="item-box">
+          <span class="sale">Sale</span>
+          <img src="images/piñas coladas.jpg" alt="" />
+          <h2>Piñas coladas</h2>
+          <div class="price">
+            <h3>$40</h3>
+            <p>$50</p>
+          </div>
+          <a href="#" class="item-btn">View Product</a>
+        </div>
+        
+      </div>
+    </section>
+    <!-- Menu -->
+    <section class="menu-container" id="menu-container">
+      <h2 class="heading container">Menu de Super Mentadas Micheladas</h2>
+      <img src="images/menu-mask.png" alt="" class="menu-mask" />
+      <div class="menu-content container">
+        <div class="menu-box">
+          <h2>Micheladas</h2>
+          <div class="burgers-content">
+            <div class="m-item-box">
+              <img src="images/imagen para miches.png" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Michelada Clasica</h3>
+                  <p>Producto: Sabor original y artesanal con retoque picosito</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$30</h3>
+                  <p>$35</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/imagen para miches.png" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Michelada Tamarindo</h3>
+                  <p>Producto: Sabor original y artesanal con sabor a Tamarindo</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$30</h3>
+                  <p>$35</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/imagen para miches.png" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Michelada Mango</h3>
+                  <p>Producto: Sabor original y artesanal con sabor a mango</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$30</h3>
+                  <p>$35</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/imagen para miches.png" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Michelada habanero</h3>
+                  <p>Producto: Sabor original y artesanal sabor a chile a habanero</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$30</h3>
+                  <p>$35</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-box">
+          <h2>Fuera de contexto</h2>
+          <div class="bbq-content">
+            <div class="m-item-box">
+              <img src="images/daiquirii.jpg" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Daiquirys</h3>
+                  <p>Producto: Coctel sin alcohol de sabor mango</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$40</h3>
+                  <p>$50</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/piñas coladas.jpg" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Piña coladas</h3>
+                  <p>Producto: Coctel sin alcohol de sabor piña con trozos de coco </p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$40</h3>
+                  <p>$50</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/azulito.jpeg" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Azulitos</h3>
+                  <p>Producto: Preparado con refresco con energizante al gusto</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>$40</h3>
+                  <p>$50</p>
+                </div>
+              </div>
+            </div>
+            <div class="m-item-box">
+              <img src="images/medio y litros.jpg" alt="" />
+              <div class="m-item-right">
+                <div class="m-item-des">
+                  <h3>Medios y Litros </h3>
+                  <p>Producto: Concentrado de michelada con conplementos</p>
+                </div>
+                <div class="m-item-price">
+                  <h3>Medio $75 </h3>
+                  <h3>Litro $130</h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <h2 class="heading container">Comentarios</h2>
+      <div class="testimonials-content container">
+        <div class="t-box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>
+            “Recomendados, un sabor unico e inigualable.”
+          </p>
+          <div class="profile">
+            <img src="images/zair.jpeg" alt="" />
+            <div class="profile-data">
+              <h3>Zair Balam </h3>
+              <span>Atleta profesional</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>
+            "Si tiene la oportunidad vengan y comprenlas"
+          </p>
+          <div class="profile">
+            <img src="images/jose aque.jpeg" alt="" />
+            <div class="profile-data">
+              <h3>Jose Aque Pech </h3>
+              <span>Programador profesional</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>
+            “Regresaria sin duda alguna, muy ricas”
+          </p>
+          <div class="profile">
+            <img src="images/sus.enc" alt="" />
+            <div class="profile-data">
+              <h3>Cristian ek</h3>
+              <span>Padre de familia</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>
+            "TIREN PROMOCIONES"
+          </p>
+          <div class="profile">
+            <img src="images/ci.jpeg" alt="" />
+            <div class="profile-data">
+              <h3>Fridman Pech </h3>
+              <span>Manager proyect</</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Newsletter -->
+     <section class="newsletter container" id="newsletter">
+      <h2>Obten una de nuestras promociones ¡Suscribete!</h2>
+      <p>No pierdas la opciones de tener unas de nuestras promociones unicas para los clientes frecuentes</p>
+      <form action="">
+        <input type="email" name="" id="" class="email" placeholder="Email" required>
+        <input type="submit" value="Subscribe" class="s-btn">
+      </form>
+     </section>
+     <!-- Footer -->
+      <div class="footer">
+        <div class="footer-content container">
+          <div class="footer-box">
+            <a href="#" class="footer-logo">
+              <img src="images/logoooo-removebg-preview.png" alt="">
+            </a>
+            <p>121, Mercedes Barrera, 97277 Mérida, Yuc.</p>
+            <div class="social">
+              <a href="#"><i class='bx bxl-instagram' ></i></a>
+              <a href="#"><i class='bx bxl-linkedin' ></i></a>
+              <a href="#"><i class='bx bxl-tiktok' ></i></a>
+              <a href="#"><i class='bx bxl-pinterest-alt' ></i></a>
+            </div>
+          </div>
+          <div class="footer-box">
+            <h3>Horarios de servicio</h3>
+            <p><Span>Mon</Span>: Cerrado</p>
+            <p><Span>Tue</Span>: Cerrado</p>
+            <p><Span>Wed</Span>: Cerrado</p>
+            <p><Span>Thu</Span>: Cerrado</p>
+            <p><Span>Fri</Span>: Cerrado</p>
+            <p><Span>Sat</Span>: 10:00am - 5:00pm</p>
+            <p><Span>Sun</Span>: 10:00am - 5:00pm</p>
+          </div>
+          <div class="footer-box">
+            <h3>Information</h3>
+            <a href="#">¿Quienes somos?</a>
+            <a href="#">Blog</a>
+            <a href="#">Mentadas Galeria</a>
+            <a href="#">Comentarios</a>
+          </div>
+          <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p>999 994 8500</p>
+            <p>micheladasmantadatumauser.com <br>
+            miches@gmail.com
+            </p>
+            <p>Address: 121, Mercedes Barrera, 97277 Mérida, Yuc.
+             </p>
+          </div>
+        </div>
+        <p class="copyright">&#169; 2025, Enrique Carranza</p>
+      </div>
+      <!-- ScrollReveal -->
+      <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Link To JS -->
     <script src="main.js"></script>
-    
-</body>
+  </body>
 </html>
