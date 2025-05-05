@@ -45,3 +45,33 @@ animate.reveal(
     interval: 100, // Agrega un intervalo de 100ms entre cada animación de los elementos seleccionados
   }
 );
+
+// Función para verificar si el usuario está en la página de login
+function checkLoginPage() {
+    // Si estamos en la página de login y no venimos del botón de usuario, redirigir al inicio
+    if (window.location.pathname.includes('login.html') && !sessionStorage.getItem('fromUserButton')) {
+        window.location.href = 'index.html';
+    }
+}
+
+// Función para manejar el clic en el botón de usuario
+function handleUserButtonClick() {
+    // Guardar en sessionStorage que venimos del botón de usuario
+    sessionStorage.setItem('fromUserButton', 'true');
+    // Redirigir a la página de login
+    window.location.href = 'login.html';
+}
+
+// Agregar el evento al botón de usuario cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+    const userButton = document.querySelector('.nav-icons a:first-child');
+    if (userButton) {
+        userButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleUserButtonClick();
+        });
+    }
+    
+    // Verificar si estamos en la página de login
+    checkLoginPage();
+});

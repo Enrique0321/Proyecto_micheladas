@@ -1,0 +1,148 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    background-size: cover;
+    background-position: center;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.login-btn:hover {
+    background: #ff5252;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.register-link a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el placeholder */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Estilos para el input de teléfono */
+input[type="tel"] {
+    letter-spacing: 1px;
+}
+
+/* Estilos para el formulario de registro */
+.register-box {
+    max-width: 500px;
+    display: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row .input-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.terms {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.terms a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-link a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.active {
+    display: block !important;
+} 
