@@ -1,102 +1,116 @@
 // Limpiar el sessionStorage cuando se carga la página de login
 sessionStorage.removeItem('fromUserButton');
 
-// Función para alternar entre los formularios de login y registro
-function toggleForms() {
-    const loginBox = document.getElementById('loginBox');
-    const registerBox = document.getElementById('registerBox');
-    
-    // Verificar que los elementos existen
-    if (!loginBox || !registerBox) {
-        console.error('No se encontraron los elementos del formulario');
-        return;
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const loginBox = document.querySelector('.login-box');
+    const registerBox = document.querySelector('.register-box');
+    const registerLink = document.querySelector('.register-link a');
+    const loginLink = document.querySelector('.login-link a');
+
+    // Función para mostrar el formulario de registro
+    function showRegisterForm() {
+        loginBox.classList.add('hidden');
+        registerBox.classList.remove('hidden');
     }
 
-    // Alternar las clases
-    loginBox.classList.toggle('hidden');
-    registerBox.classList.toggle('hidden');
-
-    // Limpiar los formularios al cambiar
-    document.getElementById('loginForm').reset();
-    document.getElementById('registerForm').reset();
-}
-
-// Manejar el envío del formulario de registro
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Obtener los valores del formulario
-    const nombre = document.getElementById('nombre').value;
-    const apellidos = document.getElementById('apellidos').value;
-    const email = document.getElementById('email').value;
-    const telefono = document.getElementById('telefono').value;
-    const contraseña = document.getElementById('contraseña').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    // Validar que las contraseñas coincidan
-    if (contraseña !== confirmPassword) {
-        alert('Las contraseñas no coinciden');
-        return;
+    // Función para mostrar el formulario de login
+    function showLoginForm() {
+        registerBox.classList.add('hidden');
+        loginBox.classList.remove('hidden');
     }
 
-    try {
-        const response = await fetch('http://localhost:3001/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                nombre,
-                apellidos,
-                email,
-                telefono,
-                contraseña
-            })
-        });
+    // Event listeners para los enlaces
+    registerLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showRegisterForm();
+    });
 
-        const data = await response.json();
+    loginLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        showLoginForm();
+    });
 
-        if (response.ok) {
-            alert('Registro exitoso');
-            toggleForms(); // Cambiar al formulario de login
-        } else {
-            alert(data.error || 'Error en el registro');
+    // Manejo del formulario de login
+    loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Login exitoso');
+                window.location.href = '/dashboard.html'; // Redirigir al dashboard
+            } else {
+                alert(data.message || 'Error en el login');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al intentar iniciar sesión');
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error al conectar con el servidor');
-    }
-});
+    });
 
-// Manejar el envío del formulario de login
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    // Manejo del formulario de registro
+    registerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const email = document.getElementById('email').value;
+        const telefono = document.getElementById('telefono').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const terms = document.getElementById('terms').checked;
 
-    const loginInput = document.getElementById('loginInput').value;
-    const password = document.getElementById('password').value;
-
-    try {
-        const response = await fetch('http://localhost:3001/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                loginInput,
-                password
-            })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert('Login exitoso');
-            window.location.href = 'index.html';
-        } else {
-            alert(data.error || 'Error en el login');
+        // Validaciones
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden');
+            return;
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error al conectar con el servidor');
-    }
+
+        if (!terms) {
+            alert('Debes aceptar los términos y condiciones');
+            return;
+        }
+
+        try {
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre,
+                    apellido,
+                    email,
+                    telefono,
+                    password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Registro exitoso');
+                showLoginForm(); // Mostrar el formulario de login después del registro
+            } else {
+                alert(data.message || 'Error en el registro');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al intentar registrar');
+        }
+    });
 }); 

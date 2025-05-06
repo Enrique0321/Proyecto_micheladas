@@ -96,11 +96,7 @@ input[type="tel"] {
 
 /* Estilos para el formulario de registro */
 .register-box {
-    display: none; /* Inicialmente oculto */
-}
-
-.register-box.active {
-    display: block;
+    display: none;
 }
 
 .form-row {
@@ -112,38 +108,6 @@ input[type="tel"] {
     flex: 1;
 }
 
-.terms {
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.terms input[type="checkbox"] {
-    width: auto;
-}
-
-.terms label {
-    font-size: 14px;
-    color: #666;
-}
-
-/* Clase para ocultar elementos */
-.hidden {
-    display: none !important;
-}
-
-/* Estilos para el formulario en filas */
-.form-row {
-    display: flex;
-    gap: 15px;
-}
-
-.form-row .input-group {
-    flex: 1;
-}
-
-/* Estilos para los términos y condiciones */
 .terms {
     margin: 20px 0;
     display: flex;
