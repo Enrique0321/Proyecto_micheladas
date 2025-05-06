@@ -5,8 +5,20 @@ sessionStorage.removeItem('fromUserButton');
 function toggleForms() {
     const loginBox = document.getElementById('loginBox');
     const registerBox = document.getElementById('registerBox');
+    
+    // Verificar que los elementos existen
+    if (!loginBox || !registerBox) {
+        console.error('No se encontraron los elementos del formulario');
+        return;
+    }
+
+    // Alternar las clases
     loginBox.classList.toggle('hidden');
     registerBox.classList.toggle('hidden');
+
+    // Limpiar los formularios al cambiar
+    document.getElementById('loginForm').reset();
+    document.getElementById('registerForm').reset();
 }
 
 // Manejar el envío del formulario de registro
@@ -79,7 +91,6 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
         if (response.ok) {
             alert('Login exitoso');
-            // Aquí puedes redirigir al usuario a la página principal
             window.location.href = 'index.html';
         } else {
             alert(data.error || 'Error en el login');

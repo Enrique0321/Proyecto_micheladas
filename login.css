@@ -1,20 +1,20 @@
 .login-container {
-    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
-    background-size: cover;
-    background-position: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 20px;
 }
 
 .login-box {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+    background: white;
+    padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin: 20px;
 }
 
 .login-box h2 {
@@ -24,29 +24,28 @@
 }
 
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
     color: #333;
     font-weight: 500;
 }
 
 .input-group input {
     width: 100%;
-    padding: 0.8rem;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 .input-group input:focus {
+    border-color: #007bff;
     outline: none;
-    border-color: #ff6b6b;
-    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 .input-group input::placeholder {
@@ -56,33 +55,31 @@
 
 .login-btn {
     width: 100%;
-    padding: 0.8rem;
-    background: #ff6b6b;
+    padding: 12px;
+    background: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    font-weight: 500;
-    margin-top: 1rem;
+    transition: background 0.3s;
 }
 
 .login-btn:hover {
-    background: #ff5252;
+    background: #0056b3;
 }
 
-.register-link {
+.register-link, .login-link {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 20px;
 }
 
-.register-link a {
-    color: #ff6b6b;
+.register-link a, .login-link a {
+    color: #007bff;
     text-decoration: none;
 }
 
-.register-link a:hover {
+.register-link a:hover, .login-link a:hover {
     text-decoration: underline;
 }
 
@@ -99,50 +96,71 @@ input[type="tel"] {
 
 /* Estilos para el formulario de registro */
 .register-box {
-    max-width: 500px;
-    display: none;
+    display: none; /* Inicialmente oculto */
+}
+
+.register-box.active {
+    display: block;
 }
 
 .form-row {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 15px;
 }
 
 .form-row .input-group {
     flex: 1;
-    margin-bottom: 0;
 }
 
 .terms {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.terms input[type="checkbox"] {
+    width: auto;
+}
+
+.terms label {
+    font-size: 14px;
     color: #666;
 }
 
-.terms a {
-    color: #ff6b6b;
-    text-decoration: none;
+/* Clase para ocultar elementos */
+.hidden {
+    display: none !important;
 }
 
-.terms a:hover {
-    text-decoration: underline;
+/* Estilos para el formulario en filas */
+.form-row {
+    display: flex;
+    gap: 15px;
 }
 
-.login-link {
-    text-align: center;
-    margin-top: 1rem;
+.form-row .input-group {
+    flex: 1;
 }
 
-.login-link a {
-    color: #ff6b6b;
-    text-decoration: none;
+/* Estilos para los términos y condiciones */
+.terms {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.login-link a:hover {
-    text-decoration: underline;
+.terms input[type="checkbox"] {
+    width: auto;
 }
 
-.active {
-    display: block !important;
+.terms label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+    display: none !important;
 } 
