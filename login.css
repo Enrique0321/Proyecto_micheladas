@@ -96,7 +96,13 @@ input[type="tel"] {
 
 /* Estilos para el formulario de registro */
 .register-box {
-    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
 }
 
 .form-row {
@@ -124,7 +130,7 @@ input[type="tel"] {
     color: #666;
 }
 
-/* Clase para ocultar elementos */
+/* Clase para mostrar/ocultar elementos */
 .hidden {
     display: none !important;
 } 
