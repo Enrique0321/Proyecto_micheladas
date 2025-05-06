@@ -1,62 +1,91 @@
 // Limpiar el sessionStorage cuando se carga la página de login
 sessionStorage.removeItem('fromUserButton');
 
+// Función para alternar entre los formularios de login y registro
 function toggleForms() {
     const loginBox = document.getElementById('loginBox');
     const registerBox = document.getElementById('registerBox');
-    
-    loginBox.classList.toggle('active');
-    registerBox.classList.toggle('active');
+    loginBox.classList.toggle('hidden');
+    registerBox.classList.toggle('hidden');
 }
 
-document.getElementById('loginForm').addEventListener('submit', function(e) {
+// Manejar el envío del formulario de registro
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const loginInput = document.getElementById('loginInput').value;
-    const password = document.getElementById('password').value;
-    
-    // Validar si el input es email o teléfono
-    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginInput);
-    const isPhone = /^[0-9]{10}$/.test(loginInput.replace(/\D/g, ''));
-    
-    if (!isEmail && !isPhone) {
-        alert('Por favor, ingresa un correo electrónico válido o un número de teléfono de 10 dígitos');
-        return;
-    }
-    
-    // Aquí puedes agregar la lógica de autenticación
-    console.log('Login attempt:', { 
-        loginType: isEmail ? 'email' : 'phone',
-        loginInput,
-        password 
-    });
-    
-    // Por ahora, solo redirigimos al inicio
-    window.location.href = 'index.html';
-});
 
-document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const password = document.getElementById('regPassword').value;
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombre').value;
+    const apellidos = document.getElementById('apellidos').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    const contraseña = document.getElementById('contraseña').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-    
-    if (password !== confirmPassword) {
+
+    // Validar que las contraseñas coincidan
+    if (contraseña !== confirmPassword) {
         alert('Las contraseñas no coinciden');
         return;
     }
-    
-    const formData = {
-        nombre: document.getElementById('nombre').value,
-        apellido: document.getElementById('apellido').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        password: password
-    };
-    
-    // Aquí puedes agregar la lógica para enviar los datos al servidor
-    console.log('Registro:', formData);
-    
-    // Por ahora, mostramos mensaje y cambiamos al formulario de login
-    alert('¡Registro exitoso! Por favor inicia sesión.');
-    toggleForms();
+
+    try {
+        const response = await fetch('http://localhost:3001/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nombre,
+                apellidos,
+                email,
+                telefono,
+                contraseña
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Registro exitoso');
+            toggleForms(); // Cambiar al formulario de login
+        } else {
+            alert(data.error || 'Error en el registro');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al conectar con el servidor');
+    }
+});
+
+// Manejar el envío del formulario de login
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const loginInput = document.getElementById('loginInput').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                loginInput,
+                password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Login exitoso');
+            // Aquí puedes redirigir al usuario a la página principal
+            window.location.href = 'index.html';
+        } else {
+            alert(data.error || 'Error en el login');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al conectar con el servidor');
+    }
 }); 
