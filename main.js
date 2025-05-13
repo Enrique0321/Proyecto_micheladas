@@ -54,21 +54,19 @@ function checkLoginPage() {
     }
 }
 
-// Función para manejar el clic en el botón de usuario
-function handleUserButtonClick() {
-    // Guardar en sessionStorage que venimos del botón de usuario
-    sessionStorage.setItem('fromUserButton', 'true');
-    // Redirigir a la página de login
+// Función para manejar el clic en el botón de iniciar sesión
+function handleLoginButtonClick() {
     window.location.href = 'login.html';
 }
 
-// Agregar el evento al botón de usuario cuando el DOM esté cargado
+// Agregar los eventos cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-    const userButton = document.querySelector('.nav-icons a:first-child');
-    if (userButton) {
-        userButton.addEventListener('click', function(e) {
+    // Agregar evento al botón de iniciar sesión
+    const loginButton = document.querySelector('.login-btn');
+    if (loginButton) {
+        loginButton.addEventListener('click', function(e) {
             e.preventDefault();
-            handleUserButtonClick();
+            handleLoginButtonClick();
         });
     }
     

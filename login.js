@@ -1,6 +1,3 @@
-// Limpiar el sessionStorage cuando se carga la página de login
-sessionStorage.removeItem('fromUserButton');
-
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
