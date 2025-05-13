@@ -1,12 +1,13 @@
 CREATE DATABASE IF NOT EXISTS usuarios;
 USE usuarios;
 
+-- Crear tabla de usuarios
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefono VARCHAR(15) NOT NULL UNIQUE,
-    contraseña VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-); 
+);

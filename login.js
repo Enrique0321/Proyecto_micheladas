@@ -1,7 +1,7 @@
 // Limpiar el sessionStorage cuando se carga la página de login
 sessionStorage.removeItem('fromUserButton');
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
     const loginBox = document.querySelector('.login-box');
@@ -22,25 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listeners para los enlaces
-    registerLink.addEventListener('click', function(e) {
+    registerLink.addEventListener('click', function (e) {
         e.preventDefault();
         showRegisterForm();
     });
 
-    loginLink.addEventListener('click', function(e) {
+    loginLink.addEventListener('click', function (e) {
         e.preventDefault();
         showLoginForm();
     });
 
     // Manejo del formulario de login
-    loginForm.addEventListener('submit', async function(e) {
+    loginForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
 
         try {
-            const response = await fetch('/login', {
+            const response = await fetch('http://localhost:3001/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (response.ok) {
                 alert('Login exitoso');
-                window.location.href = '/dashboard.html'; // Redirigir al dashboard
+                window.location.href = '/index.html'; // Redirigir al dashboard
             } else {
                 alert(data.message || 'Error en el login');
             }
@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Manejo del formulario de registro
-    registerForm.addEventListener('submit', async function(e) {
+    registerForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const nombre = document.getElementById('nombre').value;
-        const apellido = document.getElementById('apellido').value;
+        const apellidos = document.getElementById('apellidos').value;
         const email = document.getElementById('email').value;
         const telefono = document.getElementById('telefono').value;
         const password = document.getElementById('password').value;
@@ -86,14 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch('/register', {
+            const response = await fetch('http://localhost:3001/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     nombre,
-                    apellido,
+                    apellidos,
                     email,
                     telefono,
                     password
@@ -113,4 +113,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Error al intentar registrar');
         }
     });
-}); 
+});

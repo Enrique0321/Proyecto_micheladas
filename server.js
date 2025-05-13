@@ -2,31 +2,37 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./conexion_bd');
 
+const PORT = 3001;
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Verificar la conexión a la base de datos
+// Conectarse a la base de datos y luego iniciar el servidor
 db.connect((err) => {
     if (err) {
         console.error('Error al conectar con la base de datos:', err);
         return;
     }
-    console.log('Conexión exitosa a la base de datos MySQL');
+
+    console.log('Conexión exitosa a MySQL');
+
+    app.listen(PORT, () => {
+        console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    });
 });
 
-// Ruta para insertar un usuario
+// Ruta para registrar usuario
 app.post('/register', (req, res) => {
-    const { nombre, apellidos, email, telefono, contraseña } = req.body;
+    const { nombre, apellidos, email, telefono, password } = req.body;
 
-    // Validar que todos los campos requeridos estén presentes
-    if (!nombre || !apellidos || !email || !telefono || !contraseña) {
+    if (!nombre || !apellidos || !email || !telefono || !password) {
         return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
 
     db.query(
-        'INSERT INTO login (nombre, apellidos, email, telefono, contraseña) VALUES (?, ?, ?, ?, ?)',
-        [nombre, apellidos, email, telefono, contraseña],
+        'INSERT INTO users (nombre, apellidos, email, telefono, password) VALUES (?, ?, ?, ?, ?)',
+        [nombre, apellidos, email, telefono, password],
         (err, result) => {
             if (err) {
                 console.error('Error al registrar:', err);
@@ -36,25 +42,25 @@ app.post('/register', (req, res) => {
                 return res.status(500).json({ error: 'Error al registrar usuario' });
             }
             res.status(201).json({ message: 'Usuario registrado con éxito' });
+            console.log("usuario registrado con exito")
         }
     );
 });
 
-// Ruta para el login
+// Ruta para login
 app.post('/login', (req, res) => {
-    const { loginInput, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!loginInput || !password) {
+    if (!email || !password) {
         return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
 
-    // Verificar si el loginInput es email o teléfono
-    const isEmail = loginInput.includes('@');
-    const query = isEmail 
-        ? 'SELECT * FROM login WHERE email = ? AND contraseña = ?'
-        : 'SELECT * FROM login WHERE telefono = ? AND contraseña = ?';
+    const isEmail = email.includes('@');
+    const query = isEmail
+        ? 'SELECT * FROM users WHERE email = ? AND password = ?'
+        : 'SELECT * FROM users WHERE telefono = ? AND password = ?';
 
-    db.query(query, [loginInput, password], (err, results) => {
+    db.query(query, [email, password], (err, results) => {
         if (err) {
             console.error('Error en login:', err);
             return res.status(500).json({ error: 'Error en el servidor' });
@@ -67,8 +73,3 @@ app.post('/login', (req, res) => {
         }
     });
 });
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-}); 
