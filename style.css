@@ -91,6 +91,23 @@ header {
   color: var(--negro); /* Color de los iconos */
   font-size: 20px; /* Tamaño del icono */
 }
+.nav-icons .login-btn {
+  background: none !important;
+  color: var(--negro) !important;
+  border: none !important;
+  padding: 0 !important;
+  font-weight: 600;
+  border-radius: 0;
+  font-size: 1rem; /* Reduce el tamaño del texto */
+  cursor: pointer;
+  transition: text-decoration 0.2s;
+  box-shadow: none !important;
+}
+.nav-icons .login-btn:hover {
+  background: none !important;
+  color: var(--negro) !important;
+  text-decoration: underline;
+}
 .cart {
   position: relative; /* Posiciona elementos hijos de manera relativa */
 }
