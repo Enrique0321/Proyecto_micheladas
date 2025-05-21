@@ -38,9 +38,9 @@
         <!-- Iconos de navegación -->
         <div class="nav-icons">
         <a class="user-btn"><i class="bx bx-user"></i></a> <!-- Icono de usuario -->
-          <a href="#" class="cart"> <!-- Icono de carrito de compras -->
+          <a href="#" class="cart" id="cart-btn"> <!-- Icono de carrito de compras -->
             <i class="bx bx-shopping-bag"></i> <!-- Muestra la cantidad de productos en el carrito -->
-            <span>0</span>
+            <span id="cart-count">0</span>
           </a>
           <a href="#" class="login-btn" style="margin-left: auto;">Iniciar Sesión</a> <!-- Botón de inicio de sesión -->
         </div>
@@ -68,7 +68,7 @@
           <p>Michelada 100% casera y artesanal</p>
           <p>Pioneres desde 2013</p>
           
-          <a href="#" class="btn">Ordenar ahora</a> <!-- Botón de llamada a la acción -->
+         <a href="#menu-container" class="btn">Ordenar ahora</a> <!-- Botón de llamada a la acción -->
         </div>
         <!-- Home Image -->
          <!-- Imagen de la sección de inicio -->
@@ -259,6 +259,12 @@
                 <div class="m-item-price">
                   <h3>$30</h3>
                   <p>$35</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Michelada Clasica" 
+                    data-price="30" 
+                    data-image="images/imagen para miches.png">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -272,6 +278,12 @@
                 <div class="m-item-price">
                   <h3>$30</h3>
                   <p>$35</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Michelada Tamarindo" 
+                    data-price="30" 
+                    data-image="images/imagen para miches.png">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -285,6 +297,12 @@
                 <div class="m-item-price">
                   <h3>$30</h3>
                   <p>$35</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Michelada Mango" 
+                    data-price="30" 
+                    data-image="images/imagen para miches.png">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -298,6 +316,12 @@
                 <div class="m-item-price">
                   <h3>$30</h3>
                   <p>$35</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Michelada habanero" 
+                    data-price="30" 
+                    data-image="images/imagen para miches.png">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -316,6 +340,12 @@
                 <div class="m-item-price">
                   <h3>$40</h3>
                   <p>$50</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Daiquirys" 
+                    data-price="50" 
+                    data-image="images/daiquirii.jpg">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -329,6 +359,12 @@
                 <div class="m-item-price">
                   <h3>$40</h3>
                   <p>$50</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Piñas coladas" 
+                    data-price="50" 
+                    data-image="images/piñas coladas.jpg">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -342,6 +378,12 @@
                 <div class="m-item-price">
                   <h3>$40</h3>
                   <p>$50</p>
+                  <button class="add-to-cart-btn" 
+                    data-name="Azulitos" 
+                    data-price="50" 
+                    data-image="images/azulito.jpeg">
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
@@ -354,7 +396,19 @@
                 </div>
                 <div class="m-item-price">
                   <h3>Medio $75 </h3>
+                  <button class="add-to-cart-btn" 
+                    data-name="Medio preparado" 
+                    data-price="75" 
+                    data-image="images/medio y litros.jpg">
+                    Agregar al carrito
+                  </button>
                   <h3>Litro $130</h3>
+                  <button class="add-to-cart-btn" 
+                    data-name="Litro preparado" 
+                    data-price="130" 
+                    data-image="images/medio y litros.jpg">
+                    Agregar al carrito
+                  </button>
                   <p></p>
                 </div>
               </div>
@@ -506,5 +560,24 @@
 
     <!-- Archivo JavaScript principal -->
     <script src="main.js"></script>
+
+    <!-- Modal del Carrito -->
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h2>Tu Carrito</h2>
+          <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+          <!-- Los items del carrito se agregarán dinámicamente aquí -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <h3>Total: $<span id="cart-total">0</span></h3>
+          </div>
+          <button class="checkout-btn" id="checkout-btn">Realizar Pedido</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
