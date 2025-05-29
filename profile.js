@@ -35,7 +35,10 @@ profileModal.innerHTML =
                     <p id="profile-fecha"></p>
                 </div>
             </div>
-            <button class="edit-profile-btn">Editar Perfil</button>
+            <div class="profile-actions">
+                <button class="edit-profile-btn">Editar Perfil</button>
+                <button class="logout-btn">Cerrar Sesión</button>
+            </div>
         </div>
     </div>
 `;
@@ -43,74 +46,11 @@ profileModal.innerHTML =
 // Agregar el modal al body
 document.body.appendChild(profileModal);
 
-// Estilos del modal
-const styles = `
-    .profile-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-
-    .profile-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        width: 90%;
-        max-width: 500px;
-    }
-
-    .profile-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .close-profile {
-        background: none;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .profile-info {
-        margin-bottom: 20px;
-    }
-
-    .info-group {
-        margin-bottom: 15px;
-    }
-
-    .info-group label {
-        font-weight: bold;
-        margin-right: 10px;
-    }
-
-    .edit-profile-btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .edit-profile-btn:hover {
-        background-color: #45a049;
-    }
-`;
-
-// Agregar estilos
-const styleSheet = document.createElement('style');
-styleSheet.textContent = styles;
-document.head.appendChild(styleSheet);
+// Agregar el link al CSS
+const linkElement = document.createElement('link');
+linkElement.rel = 'stylesheet';
+linkElement.href = 'profile.css';
+document.head.appendChild(linkElement);
 
 // Funciones
 function showProfile() {
@@ -141,9 +81,19 @@ function closeProfile() {
     profileModal.style.display = 'none';
 }
 
+function logout() {
+    // Limpiar datos de sesión
+    localStorage.removeItem('userEmail');
+    // Cerrar el modal
+    closeProfile();
+    // Redirigir a la página de login
+    window.location.href = 'login.html';
+}
+
 // Event Listeners
 userBtn.addEventListener('click', showProfile);
 profileModal.querySelector('.close-profile').addEventListener('click', closeProfile);
+profileModal.querySelector('.logout-btn').addEventListener('click', logout);
 
 // Cerrar modal al hacer clic fuera
 profileModal.addEventListener('click', (e) => {
