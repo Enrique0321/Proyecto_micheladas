@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./conexion_bd');
+const profileRoutes = require('./api/profile');
 
 const PORT = 3001;
 
@@ -21,6 +22,9 @@ db.connect((err) => {
         console.log(`Servidor corriendo en http://localhost:${PORT}`);
     });
 });
+
+// Rutas de la API
+app.use('/api', profileRoutes);
 
 // Ruta para registrar usuario
 app.post('/register', (req, res) => {

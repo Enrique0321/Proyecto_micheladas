@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
 
             if (response.ok) {
+                localStorage.setItem('userEmail', email);
                 alert('Login exitoso');
                 window.location.href = '/index.html'; // Redirigir al dashboard
             } else {
